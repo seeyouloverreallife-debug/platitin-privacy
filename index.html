@@ -89,11 +89,13 @@
     <li><strong>ชื่อ</strong> ใช้ทักทายในหน้าวันนี้</li>
     <li><strong>วันเกิด เวลาเกิด และสถานที่เกิด</strong> ใช้กับฟีเจอร์ "ดวงจากวันเกิด" (เพื่อความบันเทิงเท่านั้น ไม่ใช่คำทำนาย) และการแสดงวันเกิดของคุณในแอพ</li>
     <li><strong>ตารางกะงานและค่าแรง</strong> เช่น ชื่อกะ เวลาเข้า-ออก เวลาทำงานจริง ค่าแรงรายวัน/รายชั่วโมง และโน้ตของแต่ละวัน</li>
+    <li><strong>รูปสลิป</strong> สำเนารูปสลิปที่ย่อขนาดแล้ว ของรายการที่คุณบันทึกจากรูปสลิป (ดูข้อ 3)</li>
   </ul>
   <p>แอพปิดการสำรองข้อมูลอัตโนมัติของ Android (<code>allowBackup=false</code>) ข้อมูลจึงไม่ถูกแอพสำรองไปยังบัญชี Google ของคุณ</p>
 
   <h3>3. อ่านตัวหนังสือจากรูป (Google ML Kit และ Tesseract)</h3>
   <p>เมื่อคุณแชร์รูปสลิปหรือใบเสร็จเข้าแอพ หรือเลือกไฟล์ แอพอ่านตัวหนังสือ <strong>บนเครื่องโดยไม่ใช้อินเทอร์เน็ต</strong> (ภาษาไทยด้วย Tesseract และภาษาอังกฤษ/ตัวเลขด้วย Google ML Kit Text Recognition) เพื่อเติมรายการให้คุณตรวจก่อนบันทึก ไม่มีรายการใดถูกบันทึกจนกว่าคุณจะยืนยัน</p>
+  <p>เมื่อคุณยืนยันบันทึกรายการจากรูปสลิป แอพเก็บสำเนารูปสลิปที่ย่อขนาดแล้ว (ไฟล์ WebP) ไว้คู่กับรายการนั้นในพื้นที่ส่วนตัวของแอพในเครื่อง เพื่อให้คุณเปิดดูย้อนหลังได้ แอพไม่เก็บสลิปที่เป็นไฟล์ PDF และไม่ลบหรือแก้ไขรูปต้นฉบับในเครื่องของคุณ แอพไม่ส่งรูปเหล่านี้ออกจากเครื่อง ถ้าคุณเลือกรวมรูปไว้ในไฟล์สำรอง รูปจะอยู่ในไฟล์นั้น และไปอยู่ทุกที่ที่คุณบันทึกหรือแชร์ไฟล์นั้น (ดูข้อ 6)</p>
   <p>ไลบรารี ML Kit ออกแบบให้ส่งสถิติการใช้งานไปยัง Google ได้ แต่ในรุ่นนี้ส่วนที่ใช้ส่งสถิติและสิทธิ์อินเทอร์เน็ตถูกนำออกจากแอพแล้ว ข้อมูลอ้างอิงของ Google: ข้อกำหนด ML Kit <a href="https://developers.google.com/ml-kit/terms" rel="noopener noreferrer">https://developers.google.com/ml-kit/terms</a> และนโยบายความเป็นส่วนตัวของ Google <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
 
   <h3>4. การป้อนด้วยเสียง</h3>
@@ -111,11 +113,13 @@
 
   <h3>6. ไฟล์สำรอง การส่งออก และการแชร์</h3>
   <p>ไฟล์สำรองและไฟล์ส่งออก (เช่น CSV) สร้างเมื่อคุณสั่ง และบันทึกหรือแชร์ไปยังที่ที่คุณเลือก (เช่น โฟลเดอร์ในเครื่อง แอพจัดเก็บไฟล์ออนไลน์ หรือแอพแชต) ผู้พัฒนาเข้าถึงไม่ได้ ไฟล์ที่แชร์ไปแล้วอยู่ภายใต้นโยบายของปลายทางนั้น ไฟล์สำรองเข้ารหัสด้วยรหัสผ่านของคุณได้ ถ้าลืมรหัสผ่าน ผู้พัฒนากู้คืนให้ไม่ได้</p>
+  <p>รูปสลิปที่แอพเก็บไว้จะอยู่ในไฟล์สำรอง .ltbackup เฉพาะเมื่อตัวเลือก "รวมรูปสลิปด้วย" เปิดอยู่ตอนสร้างไฟล์ (ตัวเลือกนี้อาจเปิดไว้ให้ล่วงหน้าเมื่อรูปรวมกันมีขนาดไม่มาก คุณปิดได้ก่อนสร้างไฟล์) ไฟล์สำรองอัตโนมัติในเครื่อง (.ltauto) ไม่รวมรูปสลิป ไฟล์ที่รวมรูปจะมีขนาดใหญ่ขึ้น ควรเก็บไฟล์และรหัสผ่านไว้ให้ปลอดภัย</p>
 
   <h3>7. การลบข้อมูล</h3>
   <ul>
     <li>รายการที่ลบทีละรายการจะอยู่ใน "ถังขยะ" ในเครื่อง และถูกลบออกถาวรโดยอัตโนมัติเมื่อครบ 30 วัน คุณล้างถังขยะเองได้ทุกเมื่อ</li>
-    <li>เพิ่มเติม &gt; ลบข้อมูลทั้งหมด: ลบข้อมูลทั้งหมดของแอพในเครื่อง ได้แก่ รายการ บัญชีเงิน ข้อมูลส่วนตัว (ชื่อ วันเกิด กะงาน) การตั้งค่า การแจ้งเตือน ไฟล์สำรองที่แอพเก็บไว้ในเครื่อง และถังขยะ (ต้องพิมพ์ยืนยัน กู้คืนไม่ได้)</li>
+    <li>รายการที่อยู่ในถังขยะยังเก็บรูปสลิปของรายการไว้เพื่อให้กู้คืนได้ครบ รูปสลิปจะถูกลบไปพร้อมกับรายการเมื่อรายการถูกลบถาวร (กดลบถาวร ล้างถังขยะ หรืออยู่ในถังขยะครบ 30 วัน)</li>
+    <li>เพิ่มเติม &gt; ลบข้อมูลทั้งหมด: ลบข้อมูลทั้งหมดของแอพในเครื่อง ได้แก่ รายการ บัญชีเงิน ข้อมูลส่วนตัว (ชื่อ วันเกิด กะงาน) การตั้งค่า การแจ้งเตือน รูปสลิปที่เก็บไว้ ไฟล์สำรองที่แอพเก็บไว้ในเครื่อง และถังขยะ (ต้องพิมพ์ยืนยัน กู้คืนไม่ได้)</li>
     <li>ถอนการติดตั้งแอพจะลบข้อมูลในเครื่องทั้งหมด</li>
     <li>ไฟล์สำรองหรือไฟล์ส่งออกที่คุณเก็บไว้นอกแอพ ต้องลบเอง</li>
   </ul>
@@ -150,10 +154,11 @@
   <p>The Google Play version of the app <strong>does not request internet permission and does not transmit your data to the developer or anyone else.</strong> There are no ads, no analytics, no user accounts and no in-app self-updater (updates come through Google Play). The developer runs no server that receives or stores your data. The exception is anything <strong>you choose to do yourself</strong>, such as exporting a CSV, creating a backup file or sharing to another app; those files go wherever you choose and are governed by that destination's policy (see sections 5 and 6).</p>
 
   <h3>2. Data stored on your device</h3>
-  <p>What you enter is kept in the app's database on your device: income and expenses, budgets, bills and subscriptions, debt/tax/investment notes, tasks, appointments, routines, daily feelings and notes, fish progress and settings. If you enter them, the app also stores the following <strong>on your device only</strong>: your <strong>name</strong> (used for greetings on the Today screen); your <strong>date, time and place of birth</strong> (used for the "birthday horoscope" feature, for entertainment only and not a prediction, and to show your birthday in the app); and your <strong>work shift schedule and wages</strong> (shift names, start/end times, actual hours worked, daily/hourly rates and day notes). Android auto-backup is disabled for the app (<code>allowBackup=false</code>).</p>
+  <p>What you enter is kept in the app's database on your device: income and expenses, budgets, bills and subscriptions, debt/tax/investment notes, tasks, appointments, routines, daily feelings and notes, fish progress and settings. If you enter them, the app also stores the following <strong>on your device only</strong>: your <strong>name</strong> (used for greetings on the Today screen); your <strong>date, time and place of birth</strong> (used for the "birthday horoscope" feature, for entertainment only and not a prediction, and to show your birthday in the app); and your <strong>work shift schedule and wages</strong> (shift names, start/end times, actual hours worked, daily/hourly rates and day notes); and downscaled copies of slip images for entries you saved from a slip (see section 3). Android auto-backup is disabled for the app (<code>allowBackup=false</code>).</p>
 
   <h3>3. Reading text from images (Google ML Kit and Tesseract)</h3>
   <p>When you share a slip or receipt image into the app or pick a file, the app reads the text <strong>on the device, without internet</strong> (Thai with Tesseract, English/numbers with Google ML Kit Text Recognition), and pre-fills an entry for you to review. Nothing is saved until you confirm. The ML Kit library is designed to be able to send usage statistics to Google; in this version, the statistics uploader and the internet permission have been removed from the app. Google references: ML Kit Terms <a href="https://developers.google.com/ml-kit/terms" rel="noopener noreferrer">https://developers.google.com/ml-kit/terms</a> and Google Privacy Policy <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</p>
+  <p>When you confirm an entry made from a slip image, the app keeps a downscaled copy of the slip (a WebP file) with that entry in the app's private storage on your device, so you can view it later. PDF slips are not kept, and the app does not delete or modify the original image on your device. The app does not send these images off the device. If you choose to include them in a backup file, they are inside that file and go wherever you save or share it (see section 6).</p>
 
   <h3>4. Voice input</h3>
   <p>Tapping the microphone opens the Android system speech recognizer (e.g. Google's or your device maker's), a separate service. The app does not request microphone permission or record audio itself; it receives only the recognized text. Your voice may be processed by that speech provider under its own policy. You can type instead.</p>
@@ -170,11 +175,13 @@
 
   <h3>6. Backups, exports and sharing</h3>
   <p>Created only when you ask, and saved or shared where you choose (e.g. a local folder, a cloud storage app or a chat app). The developer cannot access them; once shared, they are governed by the destination's policy. Backups can be encrypted with your password; a forgotten password cannot be recovered by the developer.</p>
+  <p>Kept slip images are included in a .ltbackup file only when the "Include slip images" option (รวมรูปสลิปด้วย) is on when you create the file (it may be switched on in advance when the images are small in total; you can turn it off before creating the file). Automatic on-device backups (.ltauto) never include slip images. Backups with images are larger; keep the file and its password safe.</p>
 
   <h3>7. Deleting data</h3>
   <ul>
     <li>Items you delete go to an on-device trash and are permanently removed automatically after 30 days; you can empty it any time.</li>
-    <li>More &gt; Delete all data erases all of the app's data on your device: entries, money accounts, personal details (name, birth details, shifts), settings, notifications, the backups the app keeps on the device, and the trash (typed confirmation, cannot be undone).</li>
+    <li>An entry in the trash keeps its slip images so it can be fully restored. Slip images are deleted together with the entry when it is permanently deleted (delete forever, empty trash, or after 30 days in the trash).</li>
+    <li>More &gt; Delete all data erases all of the app's data on your device: entries, money accounts, personal details (name, birth details, shifts), settings, notifications, kept slip images, the backups the app keeps on the device, and the trash (typed confirmation, cannot be undone).</li>
     <li>Uninstalling removes all on-device data.</li>
     <li>Backup or export files you keep outside the app must be deleted by you.</li>
   </ul>
