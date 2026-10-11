@@ -84,10 +84,16 @@
 
   <h3>2. ข้อมูลที่เก็บในเครื่องของคุณ</h3>
   <p>ข้อมูลที่คุณจดเก็บในฐานข้อมูลของแอพบนเครื่องของคุณ ได้แก่ รายรับรายจ่าย งบประมาณ บิลและค่าสมาชิก ข้อมูลหนี้ ภาษี และการลงทุนที่คุณบันทึก รายการงาน นัดหมาย กิจวัตร บันทึกความรู้สึกประจำวันและโน้ต ความคืบหน้าของปลา และการตั้งค่าแอพ</p>
+  <p>ถ้าคุณกรอกไว้ แอพยังเก็บข้อมูลต่อไปนี้ <strong>ในเครื่องเท่านั้น</strong>:</p>
+  <ul>
+    <li><strong>ชื่อ</strong> ใช้ทักทายในหน้าวันนี้</li>
+    <li><strong>วันเกิด เวลาเกิด และสถานที่เกิด</strong> ใช้กับฟีเจอร์ "ดวงจากวันเกิด" (เพื่อความบันเทิงเท่านั้น ไม่ใช่คำทำนาย) และการแสดงวันเกิดของคุณในแอพ</li>
+    <li><strong>ตารางกะงานและค่าแรง</strong> เช่น ชื่อกะ เวลาเข้า-ออก เวลาทำงานจริง ค่าแรงรายวัน/รายชั่วโมง และโน้ตของแต่ละวัน</li>
+  </ul>
   <p>แอพปิดการสำรองข้อมูลอัตโนมัติของ Android (<code>allowBackup=false</code>) ข้อมูลจึงไม่ถูกแอพสำรองไปยังบัญชี Google ของคุณ</p>
 
   <h3>3. อ่านตัวหนังสือจากรูป (Google ML Kit และ Tesseract)</h3>
-  <p>เมื่อคุณแชร์รูปสลิปหรือใบเสร็จเข้าแอพ หรือเลือกไฟล์ แอพใช้ Google ML Kit Text Recognition และ Tesseract อ่านตัวหนังสือ <strong>บนเครื่อง</strong> เพื่อเติมรายการให้คุณตรวจก่อนบันทึก ไม่มีรายการใดถูกบันทึกจนกว่าคุณจะยืนยัน</p>
+  <p>เมื่อคุณแชร์รูปสลิปหรือใบเสร็จเข้าแอพ หรือเลือกไฟล์ แอพอ่านตัวหนังสือ <strong>บนเครื่องโดยไม่ใช้อินเทอร์เน็ต</strong> (ภาษาไทยด้วย Tesseract และภาษาอังกฤษ/ตัวเลขด้วย Google ML Kit Text Recognition) เพื่อเติมรายการให้คุณตรวจก่อนบันทึก ไม่มีรายการใดถูกบันทึกจนกว่าคุณจะยืนยัน</p>
   <p>ไลบรารี ML Kit ออกแบบให้ส่งสถิติการใช้งานไปยัง Google ได้ แต่ในรุ่นนี้ส่วนที่ใช้ส่งสถิติและสิทธิ์อินเทอร์เน็ตถูกนำออกจากแอพแล้ว ข้อมูลอ้างอิงของ Google: ข้อกำหนด ML Kit <a href="https://developers.google.com/ml-kit/terms" rel="noopener noreferrer">https://developers.google.com/ml-kit/terms</a> และนโยบายความเป็นส่วนตัวของ Google <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
 
   <h3>4. การป้อนด้วยเสียง</h3>
@@ -98,7 +104,8 @@
     <li><strong>การแจ้งเตือน</strong> สรุปเช้า/เย็น เตือนงาน นัด บิล และวันสำคัญ</li>
     <li><strong>เริ่มทำงานหลังเปิดเครื่อง</strong> ตั้งเวลาแจ้งเตือนใหม่หลังรีบูต</li>
     <li><strong>ไบโอเมตริก (ลายนิ้วมือ/ใบหน้า) หรือรหัสเครื่อง</strong> ล็อกแอพเมื่อคุณเปิดใช้ ตรวจโดยระบบ Android แอพไม่เก็บข้อมูลชีวภาพ</li>
-    <li><strong>อ่านปฏิทินในเครื่อง</strong> (ไม่บังคับ) นำนัดหมายมาแสดง อ่านอย่างเดียว ไม่แก้ไข</li>
+    <li><strong>อ่านปฏิทินในเครื่อง</strong> (ไม่บังคับ ขอเมื่อคุณเปิด "ปฏิทินภายนอก") ใช้เพื่ออ่านนัดหมายจากปฏิทินในเครื่องมาแสดงในหน้าปฏิทินของแอพเท่านั้น อ่านอย่างเดียว ไม่แก้ไข ไม่บันทึกลงฐานข้อมูลของแอพ และไม่รวมอยู่ในไฟล์สำรอง ไฟล์ส่งออก หรือการส่งใด ๆ</li>
+    <li><strong>สั่น ปลุกเครื่องชั่วคราว และบริการเบื้องหน้า</strong> สิทธิ์ทางเทคนิคเพื่อให้การแจ้งเตือนทำงานตรงเวลา</li>
   </ul>
   <p>แอพรุ่นนี้ไม่ขอสิทธิ์อินเทอร์เน็ต กล้อง ไมโครโฟน หรือการเข้าถึงคลังรูปทั้งหมด รูปเข้ามาเฉพาะที่คุณแชร์หรือเลือกเองผ่านระบบ</p>
 
@@ -107,8 +114,8 @@
 
   <h3>7. การลบข้อมูล</h3>
   <ul>
-    <li>รายการที่ลบทีละรายการจะอยู่ใน "ถังขยะ" ในเครื่อง 30 วันแล้วหายไปเอง คุณล้างถังขยะเองได้ทุกเมื่อ</li>
-    <li>เพิ่มเติม &gt; ลบข้อมูลทั้งหมด: ล้างรายการ บัญชีเงิน การตั้งค่า การแจ้งเตือน และไฟล์สำรองอัตโนมัติที่แอพเก็บไว้ในเครื่อง (ต้องพิมพ์ยืนยัน กู้คืนไม่ได้)</li>
+    <li>รายการที่ลบทีละรายการจะอยู่ใน "ถังขยะ" ในเครื่อง และถูกลบออกถาวรโดยอัตโนมัติเมื่อครบ 30 วัน คุณล้างถังขยะเองได้ทุกเมื่อ</li>
+    <li>เพิ่มเติม &gt; ลบข้อมูลทั้งหมด: ลบข้อมูลทั้งหมดของแอพในเครื่อง ได้แก่ รายการ บัญชีเงิน ข้อมูลส่วนตัว (ชื่อ วันเกิด กะงาน) การตั้งค่า การแจ้งเตือน ไฟล์สำรองที่แอพเก็บไว้ในเครื่อง และถังขยะ (ต้องพิมพ์ยืนยัน กู้คืนไม่ได้)</li>
     <li>ถอนการติดตั้งแอพจะลบข้อมูลในเครื่องทั้งหมด</li>
     <li>ไฟล์สำรองหรือไฟล์ส่งออกที่คุณเก็บไว้นอกแอพ ต้องลบเอง</li>
   </ul>
@@ -117,7 +124,7 @@
   <p>ข้อมูลอยู่ในพื้นที่ส่วนตัวของแอพบนเครื่อง ซึ่งแอพอื่นเข้าถึงไม่ได้ตามปกติ คุณเปิดล็อกแอพด้วยไบโอเมตริกหรือรหัสเครื่องได้ และเข้ารหัสไฟล์สำรองด้วยรหัสผ่าน ความปลอดภัยของข้อมูลขึ้นกับการล็อกหน้าจอและความปลอดภัยของเครื่องคุณด้วย ไม่มีระบบใดปลอดภัย 100%</p>
 
   <h3>9. เด็ก</h3>
-  <p>แอพไม่ได้ออกแบบสำหรับเด็กอายุต่ำกว่า <span class="ph">[อายุขั้นต่ำ]</span> ปี</p>
+  <p>แอพนี้มีไว้สำหรับผู้ใช้อายุ 18 ปีขึ้นไป ไม่ได้ออกแบบหรือมุ่งเป้าไปที่เด็กหรือผู้ที่อายุต่ำกว่า 18 ปี และผู้พัฒนาไม่ได้เก็บข้อมูลของผู้ที่อายุต่ำกว่า 18 ปีโดยเจตนา (แอพรุ่นนี้ไม่ส่งข้อมูลถึงผู้พัฒนาอยู่แล้ว)</p>
 
   <h3>10. ข้อจำกัด</h3>
   <p>ปลาติทินเป็นเครื่องมือจดบันทึกส่วนตัว ไม่ใช่คำแนะนำทางการเงิน ภาษี การลงทุน หรือบริการด้านสุขภาพ</p>
@@ -143,10 +150,10 @@
   <p>The Google Play version of the app <strong>does not request internet permission and does not transmit your data to the developer or anyone else.</strong> There are no ads, no analytics, no user accounts and no in-app self-updater (updates come through Google Play). The developer runs no server that receives or stores your data. The exception is anything <strong>you choose to do yourself</strong>, such as exporting a CSV, creating a backup file or sharing to another app; those files go wherever you choose and are governed by that destination's policy (see sections 5 and 6).</p>
 
   <h3>2. Data stored on your device</h3>
-  <p>What you enter is kept in the app's database on your device: income and expenses, budgets, bills and subscriptions, debt/tax/investment notes, tasks, appointments, routines, daily feelings and notes, fish progress and settings. Android auto-backup is disabled for the app (<code>allowBackup=false</code>).</p>
+  <p>What you enter is kept in the app's database on your device: income and expenses, budgets, bills and subscriptions, debt/tax/investment notes, tasks, appointments, routines, daily feelings and notes, fish progress and settings. If you enter them, the app also stores the following <strong>on your device only</strong>: your <strong>name</strong> (used for greetings on the Today screen); your <strong>date, time and place of birth</strong> (used for the "birthday horoscope" feature, for entertainment only and not a prediction, and to show your birthday in the app); and your <strong>work shift schedule and wages</strong> (shift names, start/end times, actual hours worked, daily/hourly rates and day notes). Android auto-backup is disabled for the app (<code>allowBackup=false</code>).</p>
 
   <h3>3. Reading text from images (Google ML Kit and Tesseract)</h3>
-  <p>When you share a slip or receipt image into the app or pick a file, the app reads the text <strong>on the device</strong> using Google ML Kit Text Recognition and Tesseract, and pre-fills an entry for you to review. Nothing is saved until you confirm. The ML Kit library is designed to be able to send usage statistics to Google; in this version, the statistics uploader and the internet permission have been removed from the app. Google references: ML Kit Terms <a href="https://developers.google.com/ml-kit/terms" rel="noopener noreferrer">https://developers.google.com/ml-kit/terms</a> and Google Privacy Policy <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</p>
+  <p>When you share a slip or receipt image into the app or pick a file, the app reads the text <strong>on the device, without internet</strong> (Thai with Tesseract, English/numbers with Google ML Kit Text Recognition), and pre-fills an entry for you to review. Nothing is saved until you confirm. The ML Kit library is designed to be able to send usage statistics to Google; in this version, the statistics uploader and the internet permission have been removed from the app. Google references: ML Kit Terms <a href="https://developers.google.com/ml-kit/terms" rel="noopener noreferrer">https://developers.google.com/ml-kit/terms</a> and Google Privacy Policy <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</p>
 
   <h3>4. Voice input</h3>
   <p>Tapping the microphone opens the Android system speech recognizer (e.g. Google's or your device maker's), a separate service. The app does not request microphone permission or record audio itself; it receives only the recognized text. Your voice may be processed by that speech provider under its own policy. You can type instead.</p>
@@ -156,7 +163,8 @@
     <li><strong>Notifications</strong>: summaries and reminders.</li>
     <li><strong>Run after boot</strong>: re-schedule reminders.</li>
     <li><strong>Biometrics / device credential</strong>: optional app lock handled by Android; no biometric data stored by the app.</li>
-    <li><strong>Read device calendar</strong>: optional, read-only.</li>
+    <li><strong>Read device calendar</strong>: optional, requested only when you turn on "external calendar". Used only to read events from your device calendar and display them in the app's calendar screen. Read-only; events are not saved to the app's database and are not included in backups, exports or any transmission.</li>
+    <li><strong>Vibrate, wake lock and foreground service</strong>: technical permissions so reminders fire on time.</li>
   </ul>
   <p>This version does not request internet, camera, microphone or full photo library access; images come only from what you share or pick.</p>
 
@@ -165,8 +173,8 @@
 
   <h3>7. Deleting data</h3>
   <ul>
-    <li>Items you delete stay in an on-device trash for 30 days, then are removed automatically; you can empty it any time.</li>
-    <li>More &gt; Delete all data wipes entries, money accounts, settings, notifications and the app's automatic on-device backups (typed confirmation, cannot be undone).</li>
+    <li>Items you delete go to an on-device trash and are permanently removed automatically after 30 days; you can empty it any time.</li>
+    <li>More &gt; Delete all data erases all of the app's data on your device: entries, money accounts, personal details (name, birth details, shifts), settings, notifications, the backups the app keeps on the device, and the trash (typed confirmation, cannot be undone).</li>
     <li>Uninstalling removes all on-device data.</li>
     <li>Backup or export files you keep outside the app must be deleted by you.</li>
   </ul>
@@ -175,7 +183,7 @@
   <p>Data lives in the app's private storage. Optional app lock and password-encrypted backups are available. Security also depends on your device's screen lock; no system is 100% secure.</p>
 
   <h3>9. Children</h3>
-  <p>Not designed for children under <span class="ph">[อายุขั้นต่ำ]</span>.</p>
+  <p>This app is intended for users aged 18 and over. It is not designed for or directed at children or anyone under 18, and the developer does not knowingly collect data from anyone under 18 (this version does not send data to the developer in any case).</p>
 
   <h3>10. Not advice</h3>
   <p>Platitin is a personal record tool, not financial, tax, investment or health advice.</p>
